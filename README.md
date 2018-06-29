@@ -1,6 +1,6 @@
 # GitHub users list and profiles
 
-Live demo deployed at (https://hungry-panini-87e41c.netlify.com/)
+Live demo deployed at https://hungry-panini-87e41c.netlify.com/
 
 ## Frontend assessment task
 
