@@ -3,7 +3,8 @@ import "./Home.scss";
 import {getUsers, hideLoading} from "../../actions/users.actions";
 import {connect} from "react-redux";
 import {IUser} from "../../interfaces/IUser";
-import { Link } from "react-router-dom";
+import {ProfileItem} from "../../components/ProfileItem/index";
+
 
 export interface AppProps {
     usersList: IUser[];
@@ -14,21 +15,17 @@ export interface AppProps {
 
 class HomePage extends React.Component<AppProps, undefined> {
     componentDidMount() {
-        // console.log("this.props.location.pathname", this.props.location.pathname);
-        // if (this.props.location.pathname === "/") {
-            this.props.getUsers();
-        // }
+        this.props.getUsers();
     }
 
     render() {
         return (
             <div className="home-page text-center pt-5">
-                {this.props.usersList && this.props.usersList.map((user, i) =>
-                    <div key={`user-${i}`}>
-                        {user.login}
-                        <Link to={{ pathname: user.login }}>Details</Link>
-                    </div>
-                )}
+                <div className="user-profile-items">
+                    {this.props.usersList && this.props.usersList.map((user, i) =>
+                        <ProfileItem user={user}/>
+                    )}
+                </div>
             </div>
         );
     }

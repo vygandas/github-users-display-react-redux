@@ -13,10 +13,12 @@ export interface AppProps {
 /**
  * Preloader component is watching isLoading state property and displaying
  * loader animation or content components.
+ * -
+ * Don't place this component too far from components that are inside because this might not work properly.
+ * More info https://github.com/gaearon/react-hot-loader/issues/650#issuecomment-334876998
  * */
 class Preloader extends React.Component<AppProps, undefined> {
     render() {
-        console.log("this.props.users", this.props.users);
         return (
             <div className={`preloader-component text-center pt-5 ${this.props.loading && "loading"}`}>
                 {this.props.loading && <img src={loaderImage}/>}

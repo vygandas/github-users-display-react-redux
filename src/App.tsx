@@ -15,21 +15,24 @@ export interface AppProps {
 export default class App extends React.Component<AppProps, undefined> {
     render() {
         return (
-            <Provider store={store}>
-                <div className="app-component">
-                    <Header/>
-                    <ErrorMessage/>
-                    <Preloader>
-                        <HashRouter>
-                            <Switch>
-                                <Route exact path="/" component={HomePage}/>
-                                {/*<IndexRoute component={HomePage} />*/}
-                                <Route path="/:username" component={ProfilePage}/>
-                            </Switch>
-                        </HashRouter>
-                    </Preloader>
+            <div className="row">
+                <div className="col-12">
+                    <Provider store={store}>
+                        <div className="app-component">
+                            <Header/>
+                            <ErrorMessage/>
+                            <HashRouter>
+                                <Switch>
+                                    <Preloader>
+                                        <Route exact path="/" component={HomePage}/>
+                                        <Route path="/:username" component={ProfilePage}/>
+                                    </Preloader>
+                                </Switch>
+                            </HashRouter>
+                        </div>
+                    </Provider>
                 </div>
-            </Provider>
+            </div>
         );
     }
 }
