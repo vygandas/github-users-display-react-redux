@@ -1,11 +1,13 @@
-import {HIDE_LOADING, SHOW_LOADING, GET_USERS_LIST} from "../actions/types";
+import {HIDE_LOADING, SHOW_LOADING, GET_USERS_LIST, GET_USER, SHOW_ERROR} from "../actions/types";
 import {IDefaultUsersState} from "../interfaces/IDefaultUsersState";
 import {getLastUserIdFromList} from "../helpers/userListHelpers";
 
 export const initialState: IDefaultUsersState = {
     isLoading: true,
     usersList: null,
-    lastUserId: 0
+    lastUserId: 0,
+    user: null,
+    errorMessage: null
 };
 
 export const users = (state = initialState, action) => {
@@ -20,6 +22,10 @@ export const users = (state = initialState, action) => {
             isLoading: false,
             lastUserId: getLastUserIdFromList(action.payload)
         }};
+    case GET_USER:
+        return { ...state, ...{ user: action.payload }, loading: false};
+    case SHOW_ERROR:
+        return { ...state, ...{ errorMessage: action.payload } };
     default:
         return state;
     }

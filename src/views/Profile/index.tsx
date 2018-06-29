@@ -1,13 +1,14 @@
 import * as React from "react";
 import "./Profile.scss";
-import {getUsers} from "../../actions/users.actions";
+import {getUser} from "../../actions/users.actions";
 import {connect} from "react-redux";
 import {IUser} from "../../interfaces/IUser";
 import { Link } from "react-router-dom";
+import Preloader from "../../hoc/Preloader/index";
 
 export interface AppProps {
     usersList: IUser[];
-    getUsers: typeof getUsers;
+    getUser: typeof getUser;
     match: { params?: { username?: string } };
 }
 
@@ -25,14 +26,16 @@ class ProfilePage extends React.Component<AppProps, undefined> {
             : null;
     }
     componentDidMount() {
-        console.log("username", this.getUsername());
+        this.props.getUser(this.getUsername());
     }
     render() {
         return (
             <div className="profile-page">
-                <Link to={{ pathname: "/" }}>Back</Link>
-                dgsdgsdfgsdg
-                gsdgsdgsdg
+                <Preloader>
+                    <Link to={{ pathname: "/" }}>Back</Link>
+                    dgsdgsdfgsdg
+                    gsdgsdgsdg
+                </Preloader>
             </div>
         );
     }
@@ -40,5 +43,5 @@ class ProfilePage extends React.Component<AppProps, undefined> {
 
 export default connect(
     state => ({ usersList: state.users.usersList }),
-    {getUsers}
+    {getUser}
 )(ProfilePage);
