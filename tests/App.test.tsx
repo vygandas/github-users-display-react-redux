@@ -12,5 +12,5 @@ it("App is rendered", () => {
     const appNode = ReactDOM.findDOMNode(appElement);
 
     // Verify text content
-    expect(appNode.textContent).toEqual("Hello GitHub profile viewer!There will be a lis of GitHub users test-deploy");
+    expect(appNode.textContent).toEqual("Hello GitHub profile viewer!There will be a lis of GitHub users");
 });
