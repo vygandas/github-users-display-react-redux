@@ -26,7 +26,8 @@
     "start": "npm run start-dev",
     "start-dev": "webpack-dev-server --config=configs/webpack/dev.js",
     "start-prod": "npm run build && node express.js",
-    "test": "jest --watch --coverage --config=configs/jest.json"
+    "test:watch": "jest --watch --coverage --config=configs/jest.json",
+    "deploy": "jest --coverage --config=configs/jest.json && npm run build"
   },
   "devDependencies": {
     "@types/jest": "^23.0.0",
