@@ -1,5 +1,7 @@
 # GitHub users list and profiles
 
+Live demo deployed at (https://hungry-panini-87e41c.netlify.com/)
+
 ## Frontend assessment task
 
 ### Objective
@@ -22,11 +24,9 @@ can use enzyme or react-test-utils for traversing the virtual dom.
 ### Final objective
 1. Project starts up correctly and compiles without errors.
 2. A list of github users (avatar, login, details button) is displayed.
-
-    a. Bonus points if you can show the loading spinner before all users have been
+  * Bonus points if you can show the loading spinner before all users have been
 fetched.
-    b. Bonus points if you can make “Load more users” feature
-
+  * Bonus points if you can make “Load more users” feature
 3. When details button is clicked a new page with information about the user is shown.
 Fields (id, avatar, login, html_url) with a back button to go back to the initial list of
 users.
