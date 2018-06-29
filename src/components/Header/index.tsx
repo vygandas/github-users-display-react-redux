@@ -1,12 +1,18 @@
 import * as React from "react";
 import "./Header.scss";
+import {getUsers} from "../../actions/users.actions";
+import {connect} from "react-redux";
 
 const mainLogo = require("assets/img/logo.png");
 
 export interface AppProps {
+    getUsers: typeof getUsers;
 }
 
-export default class Header extends React.Component<AppProps, undefined> {
+class Header extends React.Component<AppProps, undefined> {
+    componentDidMount() {
+        this.props.getUsers();
+    }
     render() {
         return (
             <div className="header-component text-center pt-5">
@@ -17,3 +23,8 @@ export default class Header extends React.Component<AppProps, undefined> {
         );
     }
 }
+
+export default connect(
+    state => ({ loading: state.users.isLoading }),
+    {getUsers}
+)(Header);

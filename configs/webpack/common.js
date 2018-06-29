@@ -11,6 +11,10 @@ module.exports = {
         alias: {
             'components': resolve('src/components'),
             'assets': resolve('src/assets'),
+            'config': resolve('src/config'),
+            'interfaces': resolve('src/interfaces'),
+            'reducers': resolve('src/reducers'),
+            'actions': resolve('src/actions'),
         },
     },
     context: resolve(__dirname, '../../src'),

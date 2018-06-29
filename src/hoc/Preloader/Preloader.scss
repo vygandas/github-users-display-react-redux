@@ -1,5 +1,6 @@
 .preloader-component {
   &.loading {
+    min-height: 150px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -9,5 +10,7 @@
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
+    text-align: center;
+    justify-content: center;
   }
 }
