@@ -1,12 +1,11 @@
-$bg-color: yellow;
-$border-color: blue;
+@import "variables";
+@import "mixins";
 
-.app {
-  font-family: helvetica, arial, sans-serif;
-  padding: 2em;
-  border: 5px solid $border-color;
+body {
+  background-color: $background_main_color;
+  font-family: 'Raleway', arial, sans-serif;
+}
 
-  p {
-    background-color: $bg-color;
-  }
+.text-shadow-md {
+  @include text-shadow(0, 0, 10px, rgba(0, 0, 0, 0.35));
 }
