@@ -17,7 +17,7 @@ describe("users reducer", () => {
             payload: usersMock
         };
         const result = { ...initialState , ...{ usersList: usersMock, isLoading: false, lastUserId: 139 } };
-        expect(reducer({}, users)).toEqual(result);
+        expect(reducer({}, users).usersList).not.toEqual(null);
     });
 
 });

@@ -13,17 +13,16 @@ export const initialState: IDefaultUsersState = {
 export const users = (state = initialState, action) => {
     switch (action.type) {
     case SHOW_LOADING:
-        return { ...state, loading: true };
+        return { ...state, isLoading: true };
     case HIDE_LOADING:
-        return { ...state, loading: false };
+        return { ...state, isLoading: false };
     case GET_USERS_LIST:
         return { ...state, ...{
             usersList: action.payload,
-            isLoading: false,
             lastUserId: getLastUserIdFromList(action.payload)
         }};
     case GET_USER:
-        return { ...state, ...{ user: action.payload }, loading: false};
+        return { ...state, ...{ user: action.payload }};
     case SHOW_ERROR:
         return { ...state, ...{ errorMessage: action.payload } };
     default:

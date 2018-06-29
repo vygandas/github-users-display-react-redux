@@ -11,6 +11,7 @@ export function getUsers() {
                 type: GET_USERS_LIST,
                 payload: response.data
             }))
+            .then(() => dispatch(hideLoading()))
             .catch(response => dispatch({
                 type: SHOW_ERROR,
                 payload: response
@@ -26,6 +27,7 @@ export function getUser(username: string) {
                 type: GET_USER,
                 payload: response.data
             }))
+            .then(() => dispatch(hideLoading()))
             .catch(response => dispatch({
                 type: SHOW_ERROR,
                 payload: response

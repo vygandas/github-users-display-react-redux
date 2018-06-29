@@ -1,14 +1,14 @@
 import * as React from "react";
 import "./Profile.scss";
-import {getUser} from "../../actions/users.actions";
+import {getUser, hideLoading} from "../../actions/users.actions";
 import {connect} from "react-redux";
 import {IUser} from "../../interfaces/IUser";
 import { Link } from "react-router-dom";
-import Preloader from "../../hoc/Preloader/index";
 
 export interface AppProps {
     usersList: IUser[];
     getUser: typeof getUser;
+    hideLoading: typeof hideLoading;
     match: { params?: { username?: string } };
 }
 
@@ -31,11 +31,9 @@ class ProfilePage extends React.Component<AppProps, undefined> {
     render() {
         return (
             <div className="profile-page">
-                <Preloader>
-                    <Link to={{ pathname: "/" }}>Back</Link>
-                    dgsdgsdfgsdg
-                    gsdgsdgsdg
-                </Preloader>
+                <Link to={{ pathname: "/" }}>Back</Link>
+                dgsdgsdfgsdg
+                gsdgsdgsdg
             </div>
         );
     }
@@ -43,5 +41,5 @@ class ProfilePage extends React.Component<AppProps, undefined> {
 
 export default connect(
     state => ({ usersList: state.users.usersList }),
-    {getUser}
+    {getUser, hideLoading}
 )(ProfilePage);
