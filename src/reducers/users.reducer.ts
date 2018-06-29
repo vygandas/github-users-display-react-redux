@@ -2,7 +2,7 @@ import {HIDE_LOADING, SHOW_LOADING, GET_USERS_LIST} from "../actions/types";
 import {IDefaultUsersState} from "../interfaces/IDefaultUsersState";
 import {getLastUserIdFromList} from "../helpers/userListHelpers";
 
-const initialState: IDefaultUsersState = {
+export const initialState: IDefaultUsersState = {
     isLoading: true,
     usersList: null,
     lastUserId: 0
