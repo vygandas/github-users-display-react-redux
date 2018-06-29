@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="UTF-8"/>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>GitHub users</title>
 
@@ -23,12 +23,27 @@
         <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js" as="script">
-        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.production.min.js" as="script">
-        <link rel="preload" href="main.js" as="script">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <%/* When user sees our page we have already loaded preloader image */%>
+        <link rel="preload" href="/img/loader.gif" as="script">
+
+        <%/* Use inline styles to have fastest rendered pre-loader view */%>
+        <style>
+            .pre-loading { background: #eeeeee; }
+            .pre-loading #root {
+                background: url('/img/loader.gif') no-repeat center;
+                position: absolute;
+                margin: 0;
+                top: 0; left: 0; right: 0; bottom: 0;
+            }
+        </style>
     </head>
-    <body>
-        <div id="root"></div>
+    <body id="master" class="pre-loading">
+        <div class="container">
+            <div id="root"></div>
+        </div>
 
         <!-- Dependencies -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.production.min.js"

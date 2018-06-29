@@ -52,7 +52,8 @@ module.exports = {
         new StyleLintPlugin(),
         new HtmlWebpackPlugin({template: 'index.html.ejs'}),
         new CopyWebpackPlugin([
-            {from:'assets/favicons', to:'../dist/favicons'}
+            {from:'assets/favicons', to:'../dist/favicons'},
+            {from:'assets/img/loader.gif', to:'../dist/img/loader.gif'},
         ]),
     ],
     externals: {

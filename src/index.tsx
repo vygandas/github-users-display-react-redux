@@ -12,6 +12,8 @@ render(
     rootEl
 );
 
+document.getElementById("master").classList.remove('pre-loading');
+
 // Hot Module Replacement API
 declare let module: { hot: any };
 
