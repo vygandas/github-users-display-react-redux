@@ -46,7 +46,7 @@ class ProfilePage extends React.Component<AppProps, undefined> {
                             alt={this.props.user.login}
                         />
                         <article>
-                            <h2 className="display-3 py-3 text-shadow-md">
+                            <h2 className="h4 display-md-3 pt-4 pb-0 pt-md-3 pb-md-3 text-shadow-md">
                                 {this.props.user.login} <strong>#{this.props.user.id}</strong>
                             </h2>
                             {this.props.user.name &&

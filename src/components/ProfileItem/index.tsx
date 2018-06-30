@@ -10,16 +10,16 @@ export interface AppProps {
 export const ProfileItem = (props: AppProps): JSX.Element => {
     return (
         <div className="profile-item-component row" id={`profile-item-${props.user.id}`}>
-            <div className="col-12 wrapper py-2">
-                <div className="float-left mr-3">
-                    <img src={props.user.avatar_url} className="rounded" alt={props.user.login} width={100}/>
+            <div className="col-12 wrapper py-4 py-md-2">
+                <div className="float-md-left mr-md-3">
+                    <img src={props.user.avatar_url} className="rounded avatar-image" alt={props.user.login}/>
                 </div>
-                <div className="float-left pt-1">
-                    <h2 className="h4 float-left mt-4 pt-2">{props.user.login}</h2>
+                <div className="float-md-left pt-1 db">
+                    <h2 className="h4 mt-md-4 pt-2">{props.user.login}</h2>
                 </div>
-                <span className="pt-2 float-right">
-                    <Link to={{ pathname: props.user.login }} className="btn btn-success mt-4">Details</Link>
-                </span>
+                <div className="pt-2 float-md-right db">
+                    <Link to={{ pathname: props.user.login }} className="btn mtn-sm btn-success mt-md-4">Details</Link>
+                </div>
             </div>
         </div>
     );

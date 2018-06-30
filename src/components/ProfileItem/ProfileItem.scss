@@ -1,3 +1,10 @@
+@import "../../assets/scss/mixins";
+
 .profile-item-component {
-  //
+  .avatar-image {
+    width: 80%;
+    @include breakpoint(sm) {
+      width: 100px;
+    }
+  }
 }
