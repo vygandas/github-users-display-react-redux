@@ -19,7 +19,7 @@ class MoreButton extends React.Component<AppProps, undefined> {
                 <button
                     className="btn btn-danger btn-lg mt-3"
                     onClick={this.handleClick}
-                >Load more</button>
+                >Load more users</button>
             </div>
         );
     }
