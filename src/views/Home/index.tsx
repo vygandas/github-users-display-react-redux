@@ -24,7 +24,9 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
         this.state = { stickToId: 0 };
     }
     componentDidMount(): void {
-        this.props.getUsers();
+        if (!((this.props.usersList && this.props.usersList.length === 0) || this.props.lastUserId !== this.state.stickToId)) {
+            this.props.getUsers();
+        }
     }
     componentDidUpdate(): void {
         if (this.state.stickToId > 0) {
@@ -33,7 +35,7 @@ class HomePage extends React.Component<HomePageProps, HomePageState> {
     }
     handleScrollToElement = (): void => {
         const targetNode = document.getElementById(`profile-item-${this.state.stickToId}`);
-        window.scrollTo(0, targetNode.offsetTop);
+        (window as any).scrollTo(0, targetNode.offsetTop);
     }
     loadMoreClickHandler = (id: number): void => {
         this.setState({ stickToId: id });

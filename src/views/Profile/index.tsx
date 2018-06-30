@@ -11,7 +11,14 @@ export interface ProfilePageProps {
     match: { params?: { username?: string } };
 }
 
-class ProfilePage extends React.Component<ProfilePageProps, undefined> {
+interface ProfilePageState {
+    userNameQueried: string;
+}
+
+class ProfilePage extends React.Component<ProfilePageProps, ProfilePageState> {
+
+    private currentUserLogin: string = null;
+
     constructor(props: ProfilePageProps) {
         super(props);
     }
@@ -26,10 +33,17 @@ class ProfilePage extends React.Component<ProfilePageProps, undefined> {
     }
     componentDidMount(): void {
         this.props.getUser(this.getUsername());
+        this.currentUserLogin = this.getUsername();
     }
     componentDidUpdate(): void {
-        if (this.props.user !== null && this.props.user.login !== this.getUsername()) {
+        const check = (
+            this.props.user !== null
+            && this.props.user.login !== this.getUsername()
+            && this.currentUserLogin !== this.getUsername()
+        );
+        if (check) {
             this.props.getUser(this.getUsername());
+            this.currentUserLogin = this.getUsername();
         }
     }
     render(): JSX.Element {
