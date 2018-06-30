@@ -18,4 +18,9 @@ export interface IUser {
     readonly type: string;
     readonly site_admin: boolean;
     readonly score?: number;
+    readonly name?: string;
+    readonly company?: string;
+    readonly email?: string;
+    readonly blog?: string;
+    readonly bio?: string;
 }

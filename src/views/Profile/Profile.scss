@@ -1,3 +1,19 @@
 .profile-page {
-  //
+  .back-button-wrapper {
+    color: #454545;
+    font-size: 24px;
+
+    a {
+      color: #454545;
+    }
+  }
+
+  .avatar-image {
+    max-width: 460px;
+  }
+
+  .card {
+    max-width: 460px;
+    margin: auto;
+  }
 }

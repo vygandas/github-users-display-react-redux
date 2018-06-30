@@ -6,9 +6,8 @@ import {IUser} from "../../interfaces/IUser";
 import { Link } from "react-router-dom";
 
 export interface AppProps {
-    usersList: IUser[];
+    user: IUser;
     getUser: typeof getUser;
-    hideLoading: typeof hideLoading;
     match: { params?: { username?: string } };
 }
 
@@ -30,16 +29,55 @@ class ProfilePage extends React.Component<AppProps, undefined> {
     }
     render() {
         return (
-            <div className="profile-page">
-                <Link to={{ pathname: "/" }}>Back</Link>
-                dgsdgsdfgsdg
-                gsdgsdgsdg
+            <div className="profile-page pb-5">
+                <div className="back-button-wrapper text-center pb-4">
+                    <Link to={{ pathname: "/" }} >&#8617; Back</Link>
+                </div>
+                {this.props.user &&
+                    <div className="text-center">
+                        <img
+                            className="box-shadow-md img-fluid avatar-image"
+                            src={this.props.user.avatar_url}
+                            alt={this.props.user.login}
+                        />
+                        <article>
+                            <h2 className="display-3 py-3 text-shadow-md">
+                                {this.props.user.login} <strong>#{this.props.user.id}</strong>
+                            </h2>
+                            {this.props.user.name &&
+                                <h3 className="h4 py-3">
+                                    {this.props.user.name}
+                                </h3>
+                            }
+                            {this.props.user.company &&
+                                <h3 className="h4 py-3">
+                                    {this.props.user.company}
+                                </h3>
+                            }
+                            <a
+                                href={this.props.user.html_url}
+                                target="_blank"
+                                title={this.props.user.login}
+                                className="h4"
+                            >
+                                {this.props.user.html_url}
+                            </a>
+                            {this.props.user.bio &&
+                                <div className="card mt-5">
+                                    <div className="card-body">
+                                        <p className="card-text">{this.props.user.bio}</p>
+                                    </div>
+                                </div>
+                            }
+                        </article>
+                    </div>
+                }
             </div>
         );
     }
 }
 
 export default connect(
-    state => ({ usersList: state.users.usersList }),
-    {getUser, hideLoading}
+    state => ({ user: state.users.user }),
+    {getUser}
 )(ProfilePage);
