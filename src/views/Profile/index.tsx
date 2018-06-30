@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./Profile.scss";
-import {getUser, hideLoading} from "../../actions/users.actions";
+import {getUser} from "../../actions/users.actions";
 import {connect} from "react-redux";
 import {IUser} from "../../interfaces/IUser";
 import { Link } from "react-router-dom";
@@ -26,6 +26,11 @@ class ProfilePage extends React.Component<AppProps, undefined> {
     }
     componentDidMount() {
         this.props.getUser(this.getUsername());
+    }
+    componentDidUpdate() {
+        if (this.props.user.login !== this.getUsername()) {
+            this.props.getUser(this.getUsername());
+        }
     }
     render() {
         return (
