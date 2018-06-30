@@ -20,7 +20,7 @@ class HomePage extends React.Component<AppProps, undefined> {
 
     render() {
         return (
-            <div className="home-page text-center pt-5">
+            <div className="home-page text-center p-5">
                 <div className="user-profile-items">
                     {this.props.usersList && this.props.usersList.map((user, i) =>
                         <ProfileItem user={user}/>

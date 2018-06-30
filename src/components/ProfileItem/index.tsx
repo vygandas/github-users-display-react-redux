@@ -10,7 +10,7 @@ export interface AppProps {
 export const ProfileItem = (props: AppProps): JSX.Element => {
     return (
         <div className="profile-item-component row">
-            <div className="col-12">
+            <div className="col-12 wrapper py-2">
                 <div className="float-left mr-3">
                     <img src={props.user.avatar_url} className="rounded" alt={props.user.login} width={100}/>
                 </div>
