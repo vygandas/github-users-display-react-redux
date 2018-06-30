@@ -1,8 +1,8 @@
 import {HIDE_LOADING, SHOW_LOADING, GET_USERS_LIST, GET_USER, SHOW_ERROR, GET_MORE_USERS_LIST} from "../actions/types";
-import {IDefaultUsersState} from "../interfaces/IDefaultUsersState";
+import {IUsersState} from "../interfaces/IUsersState";
 import {getLastUserIdFromList} from "../helpers/userListHelpers";
 
-export const initialState: IDefaultUsersState = {
+export const initialState: IUsersState = {
     isLoading: true,
     usersList: null,
     lastUserId: 0,
@@ -10,7 +10,7 @@ export const initialState: IDefaultUsersState = {
     errorMessage: null
 };
 
-export const users = (state = initialState, action) => {
+export const users = (state: IUsersState = initialState, action): IUsersState => {
     switch (action.type) {
     case SHOW_LOADING:
         return { ...state, isLoading: true };

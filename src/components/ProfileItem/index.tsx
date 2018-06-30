@@ -3,11 +3,11 @@ import {IUser} from "../../interfaces/IUser";
 import { Link } from "react-router-dom";
 import "./ProfileItem.scss";
 
-export interface AppProps {
+export interface ProfileItemProps {
     user: IUser;
 }
 
-export const ProfileItem = (props: AppProps): JSX.Element => {
+export const ProfileItem = (props: ProfileItemProps): JSX.Element => {
     return (
         <div className="profile-item-component row" id={`profile-item-${props.user.id}`}>
             <div className="col-12 wrapper py-4 py-md-2">

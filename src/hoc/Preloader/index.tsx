@@ -5,7 +5,7 @@ import {IUser} from "../../interfaces/IUser";
 
 const loaderImage = require("assets/img/loader.gif");
 
-export interface AppProps {
+export interface PreloaderProps {
     loading: boolean;
     users: IUser[];
 }
@@ -17,7 +17,7 @@ export interface AppProps {
  * Don't place this component too far from components that are inside because this might not work properly.
  * More info https://github.com/gaearon/react-hot-loader/issues/650#issuecomment-334876998
  * */
-class Preloader extends React.Component<AppProps, undefined> {
+class Preloader extends React.Component<PreloaderProps, undefined> {
     render() {
         return (
             <div className={`preloader-component text-center pt-5 ${this.props.loading && "loading"}`}>

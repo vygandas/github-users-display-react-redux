@@ -1,12 +1,12 @@
 import * as React from "react";
 import {connect} from "react-redux";
 
-export interface AppProps {
+export interface ErrorMessageProps {
     errorMessage: string;
 }
 
-class ErrorMessage extends React.Component<AppProps, undefined> {
-    render() {
+class ErrorMessage extends React.Component<ErrorMessageProps, undefined> {
+    render(): JSX.Element {
         return (
             <div className="error-message-component">
                 {this.props.errorMessage && this.props.errorMessage !== "" &&

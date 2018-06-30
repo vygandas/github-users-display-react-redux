@@ -3,11 +3,11 @@ import "./Header.scss";
 
 const mainLogo = require("assets/img/logo.png");
 
-export interface AppProps {
+export interface HeaderProps {
 }
 
-export default class Header extends React.Component<AppProps, undefined> {
-    render() {
+export default class Header extends React.Component<HeaderProps, undefined> {
+    render(): JSX.Element {
         return (
             <div className="header-component text-center pt-5">
                 <img src={mainLogo} height={211} width={213}/>

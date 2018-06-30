@@ -13,7 +13,7 @@ export interface AppProps {
 }
 
 export default class App extends React.Component<AppProps, undefined> {
-    render() {
+    render(): JSX.Element {
         return (
             <div className="row">
                 <div className="col-12">

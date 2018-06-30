@@ -1,6 +1,6 @@
 import {IUser} from "./IUser";
 
-export interface IDefaultUsersState {
+export interface IUsersState {
     isLoading: boolean;
     usersList: IUser[];
     lastUserId: number;

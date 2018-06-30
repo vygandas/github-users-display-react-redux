@@ -6,7 +6,7 @@ import {IUser} from "../../interfaces/IUser";
 import {ProfileItem} from "../../components/ProfileItem/index";
 import MoreButton from "../../components/MoreButton";
 
-export interface AppProps {
+export interface HomePageProps {
     usersList: IUser[];
     lastUserId: number;
     getUsers: typeof getUsers;
@@ -18,27 +18,27 @@ interface HomePageState {
     stickToId: number;
 }
 
-class HomePage extends React.Component<AppProps, HomePageState> {
-    constructor(props: AppProps) {
+class HomePage extends React.Component<HomePageProps, HomePageState> {
+    constructor(props: HomePageProps) {
         super(props);
         this.state = { stickToId: 0 };
     }
-    componentDidMount() {
+    componentDidMount(): void {
         this.props.getUsers();
     }
-    componentDidUpdate() {
+    componentDidUpdate(): void {
         if (this.state.stickToId > 0) {
             this.handleScrollToElement();
         }
     }
-    handleScrollToElement = () => {
+    handleScrollToElement = (): void => {
         const targetNode = document.getElementById(`profile-item-${this.state.stickToId}`);
         window.scrollTo(0, targetNode.offsetTop);
     }
-    loadMoreClickHandler = (id: number) => {
+    loadMoreClickHandler = (id: number): void => {
         this.setState({ stickToId: id });
     }
-    render() {
+    render(): JSX.Element {
         return (
             <div className="home-page text-center p-5">
                 <div className="user-profile-items">

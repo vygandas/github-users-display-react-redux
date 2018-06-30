@@ -1,6 +1,6 @@
 import {IUser} from "../interfaces/IUser";
 
-export const getLastUserIdFromList = (users: IUser[]) => {
+export const getLastUserIdFromList = (users: IUser[]): number => {
     if (users != null && users.length > 0) {
         const lastUser = users[users.length - 1];
         return typeof lastUser.id !== typeof undefined ? lastUser.id : 0;

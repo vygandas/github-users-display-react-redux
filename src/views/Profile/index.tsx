@@ -3,19 +3,19 @@ import "./Profile.scss";
 import {getUser} from "../../actions/users.actions";
 import {connect} from "react-redux";
 import {IUser} from "../../interfaces/IUser";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-export interface AppProps {
+export interface ProfilePageProps {
     user: IUser;
     getUser: typeof getUser;
     match: { params?: { username?: string } };
 }
 
-class ProfilePage extends React.Component<AppProps, undefined> {
-    constructor(props: AppProps) {
+class ProfilePage extends React.Component<ProfilePageProps, undefined> {
+    constructor(props: ProfilePageProps) {
         super(props);
     }
-    getUsername = () => {
+    getUsername = (): string | null => {
         const p = this.props;
         return (typeof p !== typeof undefined
             && typeof p.match !== typeof undefined
@@ -24,15 +24,15 @@ class ProfilePage extends React.Component<AppProps, undefined> {
             ? this.props.match.params.username
             : null;
     }
-    componentDidMount() {
+    componentDidMount(): void {
         this.props.getUser(this.getUsername());
     }
-    componentDidUpdate() {
+    componentDidUpdate(): void {
         if (this.props.user !== null && this.props.user.login !== this.getUsername()) {
             this.props.getUser(this.getUsername());
         }
     }
-    render() {
+    render(): JSX.Element {
         return (
             <div className="profile-page pb-5">
                 <div className="back-button-wrapper text-center pb-4">

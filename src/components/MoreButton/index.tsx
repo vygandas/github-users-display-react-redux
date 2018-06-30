@@ -2,18 +2,18 @@ import * as React from "react";
 import {connect} from "react-redux";
 import {getUsers} from "../../actions/users.actions";
 
-export interface AppProps {
+export interface MoreButtonProps {
     since: number;
     getUsers: typeof getUsers;
     clickHandlerCallback: (id: number) => {};
 }
 
-class MoreButton extends React.Component<AppProps, undefined> {
+class MoreButton extends React.Component<MoreButtonProps, undefined> {
     handleClick = () => {
         this.props.getUsers(this.props.since);
         this.props.clickHandlerCallback(this.props.since);
     }
-    render() {
+    render(): JSX.Element {
         return (
             <div className="more-button-component">
                 <button
