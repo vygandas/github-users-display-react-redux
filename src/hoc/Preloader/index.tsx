@@ -21,7 +21,7 @@ class Preloader extends React.Component<AppProps, undefined> {
     render() {
         return (
             <div className={`preloader-component text-center pt-5 ${this.props.loading && "loading"}`}>
-                {this.props.loading && <img src={loaderImage}/>}
+                {this.props.loading && <img src={loaderImage} className="my-5"/>}
                 <div className={this.props.loading ? "hidden" : ""}>
                     {this.props.children}
                 </div>

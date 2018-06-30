@@ -1,14 +1,14 @@
-import {GET_USER, GET_USERS_LIST, HIDE_LOADING, SHOW_ERROR, SHOW_LOADING} from "./types";
+import {GET_MORE_USERS_LIST, GET_USER, GET_USERS_LIST, HIDE_LOADING, SHOW_ERROR, SHOW_LOADING} from "./types";
 import axios from "axios";
 import {API_GITHUB_URL} from "../config/api.config";
 import {stringify} from "querystring";
 
-export function getUsers() {
+export function getUsers(since: number = 0) {
     return dispatch => {
         dispatch(showLoading());
-        axios.get(`${API_GITHUB_URL}/users?${stringify({ since: 135 })}`)
+        axios.get(`${API_GITHUB_URL}/users?${stringify({ since })}`)
             .then(response => dispatch({
-                type: GET_USERS_LIST,
+                type: (since === 0) ? GET_USERS_LIST : GET_MORE_USERS_LIST,
                 payload: response.data
             }))
             .then(() => dispatch(hideLoading()))

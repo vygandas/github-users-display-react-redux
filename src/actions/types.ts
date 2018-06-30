@@ -1,4 +1,5 @@
 export const GET_USERS_LIST = "GET_USERS_LIST";
+export const GET_MORE_USERS_LIST = "GET_MORE_USERS_LIST";
 export const GET_USER = "GET_USER";
 export const GET_USER_DETAILS = "GET_USER_DETAILS";
 export const SHOW_LOADING = "SHOW_LOADING";
