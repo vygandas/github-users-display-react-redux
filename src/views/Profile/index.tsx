@@ -28,7 +28,7 @@ class ProfilePage extends React.Component<AppProps, undefined> {
         this.props.getUser(this.getUsername());
     }
     componentDidUpdate() {
-        if (this.props.user.login !== this.getUsername()) {
+        if (this.props.user !== null && this.props.user.login !== this.getUsername()) {
             this.props.getUser(this.getUsername());
         }
     }
