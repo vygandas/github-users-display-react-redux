@@ -1,6 +1,6 @@
 import * as React from "react";
 import "assets/scss/App.scss";
-import Header from "./components/Header/index";
+import {Header} from "./components/Header/index";
 import ErrorMessage from "./components/ErrorMessage";
 import store from "./store";
 import {Provider} from "react-redux";

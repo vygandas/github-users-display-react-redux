@@ -2,6 +2,17 @@
 
 Live demo deployed at https://hungry-panini-87e41c.netlify.com/
 
+This project is using CI on Netlify. It is deployed automatically when changes are merged to master
+branch. At first tests are ran and after that actual project build.
+
+Typescript allows to force to use correct types everywhere so there's a high chance that 
+tests or build will fail during deployment process. Netlify also sends me an email on that occurance
+as all other major CI systems.
+
+I have added more than was requested in the task to make this application faster and more stable.
+Users list state stays the same after user clicks back button from profile. This saves us one API call.
+Made sure that there are no double requests to the API, no errors in console.  
+
 ## Frontend assessment task
 
 ### Objective
@@ -46,7 +57,8 @@ users.
 * Image loading/minimization using [Image Webpack Loader](https://github.com/tcoopman/image-webpack-loader)
 * Typescript compiling using [Awesome Typescript Loader](https://github.com/s-panferov/awesome-typescript-loader) (5.x)
 * Code quality (linting) for Typescript and SASS/CSS.
-
+* **[Axios](https://github.com/axios/axios)**
+* **[Thunk](https://github.com/reduxjs/redux-thunk)**
 ---
 
 ## Installation
@@ -76,9 +88,10 @@ Command | Description
 `npm run start-dev` | Build app continously (HMR enabled) and serve @ `http://localhost:8080`
 `npm run start-prod` | Build app once (HMR disabled) and serve @ `http://localhost:3000`
 `npm run build` | Build app to `/dist/` 
-`npm run test` | Run tests
+`npm run test:watch` | Run tests and watch
 `npm run lint` | Run Typescript and SASS linter
 `npm run lint:ts` | Run Typescript linter
 `npm run lint:sass` | Run SASS linter
 `npm run start` | (alias of `npm run start-dev`)
+`npm run deploy` | Run tests and then build
 
