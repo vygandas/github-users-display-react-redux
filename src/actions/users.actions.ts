@@ -12,9 +12,9 @@ export function getUsers(since: number = 0) {
                 payload: response.data
             }))
             .then(() => dispatch(hideLoading()))
-            .catch(response => dispatch({
+            .catch(error => dispatch({
                 type: SHOW_ERROR,
-                payload: response
+                payload: error.response.data.message
             }));
     };
 }
@@ -27,11 +27,13 @@ export function getUser(username: string) {
                 type: GET_USER,
                 payload: response.data
             }))
-            .then(() => dispatch(hideLoading()))
-            .catch(response => dispatch({
-                type: SHOW_ERROR,
-                payload: response
-            }));
+            .catch(error => {
+                return dispatch({
+                    type: SHOW_ERROR,
+                    payload: error.response.data.message
+                });
+            })
+            .then(() => dispatch(hideLoading()));
     };
 }
 

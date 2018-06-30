@@ -19,15 +19,17 @@ export const users = (state: IUsersState = initialState, action): IUsersState =>
     case GET_USERS_LIST:
         return { ...state, ...{
             usersList: action.payload,
-            lastUserId: getLastUserIdFromList(action.payload)
+            lastUserId: getLastUserIdFromList(action.payload),
+            errorMessage: null
         }};
     case GET_MORE_USERS_LIST:
         return { ...state, ...{
             usersList: [].concat(state.usersList, action.payload),
-            lastUserId: getLastUserIdFromList(action.payload)
+            lastUserId: getLastUserIdFromList(action.payload),
+            errorMessage: null
         }};
     case GET_USER:
-        return { ...state, ...{ user: action.payload }};
+        return { ...state, ...{ user: action.payload, errorMessage: null }};
     case SHOW_ERROR:
         return { ...state, ...{ errorMessage: action.payload } };
     default:
