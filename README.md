@@ -13,6 +13,8 @@ I have added more than was requested in the task to make this application faster
 Users list state stays the same after user clicks back button from profile. This saves us one API call.
 Made sure that there are no double requests to the API, no errors in console.  
 
+TODO: add meta, og support.
+
 ## Frontend assessment task
 
 ### Objective
