@@ -1,6 +1,7 @@
 import * as React from "react";
 import {IUser} from "../../interfaces/IUser";
 import { Link } from "react-router-dom";
+import {event} from "../../helpers/gtag";
 import "./ProfileItem.scss";
 
 export interface ProfileItemProps {
@@ -18,7 +19,11 @@ export const ProfileItem = (props: ProfileItemProps): JSX.Element => {
                     <h2 className="h4 mt-md-4 pt-2">{props.user.login}</h2>
                 </div>
                 <div className="pt-2 float-md-right db">
-                    <Link to={{ pathname: props.user.login }} className="btn mtn-sm btn-success mt-md-4">Details</Link>
+                    <Link
+                        to={{ pathname: props.user.login }}
+                        className="btn mtn-sm btn-success mt-md-4"
+                        onClick={() => event("profile_details_button", "click")}
+                    >Details</Link>
                 </div>
             </div>
         </div>

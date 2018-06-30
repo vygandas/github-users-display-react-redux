@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import "./Preloader.scss";
 import {IUser} from "../../interfaces/IUser";
 
-const loaderImage = require("assets/img/loader.gif");
-
 export interface PreloaderProps {
     loading: boolean;
     users: IUser[];
@@ -18,10 +16,14 @@ export interface PreloaderProps {
  * More info https://github.com/gaearon/react-hot-loader/issues/650#issuecomment-334876998
  * */
 class Preloader extends React.Component<PreloaderProps, undefined> {
+    drawLoaderImage = () => {
+        const loaderImage = require("assets/img/loader.gif");
+        return <img src={loaderImage} className="my-5"/>;
+    }
     render() {
         return (
             <div className={`preloader-component text-center pt-5 ${this.props.loading && "loading"}`}>
-                {this.props.loading && <img src={loaderImage} className="my-5"/>}
+                {this.props.loading && this.drawLoaderImage()}
                 <div className={this.props.loading ? "hidden" : ""}>
                     {this.props.children}
                 </div>

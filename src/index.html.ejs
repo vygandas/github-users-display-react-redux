@@ -29,7 +29,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
 
         <%/* When user sees our page we have already loaded preloader image */%>
-        <link rel="preload" href="/img/loader.gif" as="script">
+        <%/* <link rel="preload" href="/img/loader.gif" as="script"> */%>
 
         <%/* Use inline styles to have fastest rendered pre-loader view */%>
         <style>
@@ -41,6 +41,17 @@
                 top: 0; left: 0; right: 0; bottom: 0;
             }
         </style>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121665087-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-121665087-1');
+        </script>
+
     </head>
     <body id="master" class="pre-loading">
         <div class="container">

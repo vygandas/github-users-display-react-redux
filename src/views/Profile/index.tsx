@@ -1,9 +1,10 @@
 import * as React from "react";
-import "./Profile.scss";
 import {getUser} from "../../actions/users.actions";
 import {connect} from "react-redux";
 import {IUser} from "../../interfaces/IUser";
 import {Link} from "react-router-dom";
+import {event} from "../../helpers/gtag";
+import "./Profile.scss";
 
 export interface ProfilePageProps {
     user: IUser;
@@ -50,7 +51,7 @@ class ProfilePage extends React.Component<ProfilePageProps, ProfilePageState> {
         return (
             <div className="profile-page pb-5">
                 <div className="back-button-wrapper text-center pb-4">
-                    <Link to={{ pathname: "/" }} >&#8617; Back</Link>
+                    <Link to={{ pathname: "/" }} onClick={() => event("profile_back_button", "click")}>&#8617; Back</Link>
                 </div>
                 {this.props.user &&
                     <div className="text-center">
@@ -78,6 +79,7 @@ class ProfilePage extends React.Component<ProfilePageProps, ProfilePageState> {
                                 target="_blank"
                                 title={this.props.user.login}
                                 className="h4"
+                                onClick={() => event("profile_github_url", "click", this.props.user.html_url)}
                             >
                                 {this.props.user.html_url}
                             </a>

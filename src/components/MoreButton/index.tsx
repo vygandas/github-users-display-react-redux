@@ -1,6 +1,7 @@
 import * as React from "react";
 import {connect} from "react-redux";
 import {getUsers} from "../../actions/users.actions";
+import {event} from "../../helpers/gtag";
 
 export interface MoreButtonProps {
     since: number;
@@ -12,6 +13,7 @@ class MoreButton extends React.Component<MoreButtonProps, undefined> {
     handleClick = () => {
         this.props.getUsers(this.props.since);
         this.props.clickHandlerCallback(this.props.since);
+        event("load_more_button", "click");
     }
     render(): JSX.Element {
         return (
